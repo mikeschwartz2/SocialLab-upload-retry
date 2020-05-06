@@ -1,0 +1,35 @@
+
+
+<div class="container">
+    <h1>My Thoughts</h1>
+
+    <button (click)="showFormToggle()" class="newThought">New Thought</button>
+
+
+    <div class="posts-container">
+        <div *ngFor="let post of posts; index as i;" class="post-list">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.thought }} <button (click)="deletePost(i)" class="delete">X</button></p>
+            
+            <hr>
+        </div>
+    </div>
+</div>
+
+
+
+  <div *ngIf="showForm">
+
+    <div class="addThought">
+        <div class="popup-background">
+            <div class="add-form">
+                <label>Title</label>
+                <input [(ngModel)]="newTitle" type="text" placeholder="Title">
+                <label>Thought</label>
+                <textarea [(ngModel)]="newThought" type="textarea" placeholder="Thought" rows="4" ></textarea>    
+                <button (click)="addThought(newTitle, newThought)">Add Thought</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
